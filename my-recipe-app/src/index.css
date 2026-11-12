@@ -56,20 +56,21 @@ body {
   background-color: var(--bg);
   background-image:
     radial-gradient(
-      ellipse at 12% 8%,
-      rgba(255, 176, 103, 0.4),
-      transparent 42%
+      ellipse at 10% 8%,
+      rgba(255, 154, 68, 0.6),
+      transparent 46%
     ),
     radial-gradient(
-      ellipse at 88% 4%,
-      rgba(192, 132, 252, 0.3),
-      transparent 40%
+      ellipse at 90% 6%,
+      rgba(186, 104, 255, 0.5),
+      transparent 44%
     ),
     radial-gradient(
-      ellipse at 50% 110%,
-      rgba(94, 234, 212, 0.22),
-      transparent 55%
-    );
+      ellipse at 50% 112%,
+      rgba(45, 212, 191, 0.5),
+      transparent 58%
+    ),
+    linear-gradient(135deg, #fff0d9 0%, #fbe6ff 50%, #e0fff8 100%);
   background-attachment: fixed;
 }
 
@@ -84,12 +85,12 @@ body::before {
     repeating-linear-gradient(
       45deg,
       transparent 0 26px,
-      rgba(120, 72, 32, 0.05) 26px 28px
+      rgba(120, 72, 32, 0.08) 26px 28px
     ),
     repeating-linear-gradient(
       -45deg,
       transparent 0 26px,
-      rgba(120, 72, 32, 0.05) 26px 28px
+      rgba(120, 72, 32, 0.08) 26px 28px
     );
 }
 
@@ -97,20 +98,21 @@ body::before {
   body {
     background-image:
       radial-gradient(
-        ellipse at 12% 8%,
-        rgba(180, 83, 9, 0.3),
-        transparent 42%
+        ellipse at 10% 8%,
+        rgba(234, 88, 12, 0.5),
+        transparent 46%
       ),
       radial-gradient(
-        ellipse at 88% 4%,
-        rgba(147, 51, 234, 0.24),
-        transparent 40%
+        ellipse at 90% 6%,
+        rgba(168, 85, 247, 0.45),
+        transparent 44%
       ),
       radial-gradient(
-        ellipse at 50% 110%,
-        rgba(13, 148, 136, 0.2),
-        transparent 55%
-      );
+        ellipse at 50% 112%,
+        rgba(20, 184, 166, 0.4),
+        transparent 58%
+      ),
+      linear-gradient(135deg, #1c130c 0%, #170f22 50%, #081713 100%);
   }
 
   body::before {
@@ -118,12 +120,12 @@ body::before {
       repeating-linear-gradient(
         45deg,
         transparent 0 26px,
-        rgba(255, 235, 210, 0.045) 26px 28px
+        rgba(255, 235, 210, 0.06) 26px 28px
       ),
       repeating-linear-gradient(
         -45deg,
         transparent 0 26px,
-        rgba(255, 235, 210, 0.045) 26px 28px
+        rgba(255, 235, 210, 0.06) 26px 28px
       );
   }
 }
@@ -136,7 +138,7 @@ body::before {
   margin: 0 auto;
   text-align: center;
   border-inline: 1px solid var(--border);
-  background: rgba(255, 253, 248, 0.7);
+  background: rgba(255, 253, 248, 0.6);
   backdrop-filter: blur(14px);
   box-shadow: 0 0 90px rgba(86, 52, 20, 0.09);
   min-height: 100svh;
@@ -147,7 +149,7 @@ body::before {
 
 @media (prefers-color-scheme: dark) {
   #root {
-    background: rgba(20, 18, 16, 0.72);
+    background: rgba(20, 18, 16, 0.66);
     box-shadow: 0 0 90px rgba(0, 0, 0, 0.35);
   }
 }

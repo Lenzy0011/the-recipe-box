@@ -1,18 +1,23 @@
+import './RecipeList.css';
+
 export default function RecipeList({ recipes, selectedRecipeId, onSelectRecipe, onToggleFavorite }) {
   return (
-    <div>
+    <div className="recipe-list">
       <h2>Saved Recipes</h2>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {recipes.map(recipe => (
-          <li 
-            key={recipe.id} 
+      <ul className="recipe-list__items">
+        {recipes.map((recipe, index) => (
+          <li
+            key={recipe.id}
+            className={`recipe-item${recipe.id === selectedRecipeId ? ' is-selected' : ''}`}
+            style={{ animationDelay: `${Math.min(index * 80, 400)}ms` }}
             onClick={() => onSelectRecipe(recipe.id === selectedRecipeId ? null : recipe.id)}
-            style={{ padding: '10px', border: '1px solid #ccc', marginBottom: '5px', cursor: 'pointer' }}
           >
-            <strong>{recipe.title}</strong>
-            <button 
+            <strong className="recipe-item__title">{recipe.title}</strong>
+            <button
+              type="button"
+              className="recipe-item__fav"
+              aria-pressed={recipe.isFavorite}
               onClick={(e) => onToggleFavorite(recipe.id, e)}
-              style={{ marginLeft: '10px' }}
             >
               {recipe.isFavorite ? '★ Favorited' : '☆ Favorite'}
             </button>
