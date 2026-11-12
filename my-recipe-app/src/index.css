@@ -8,6 +8,13 @@
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
+  --title-gradient: linear-gradient(
+    90deg,
+    #e8590c,
+    #a21caf,
+    #0f766e,
+    #e8590c
+  );
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
@@ -41,6 +48,13 @@
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
+    --title-gradient: linear-gradient(
+      90deg,
+      #fb923c,
+      #e879f9,
+      #2dd4bf,
+      #fb923c
+    );
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
@@ -52,6 +66,7 @@
 
 body {
   margin: 0;
+  overflow-x: hidden;
   min-height: 100svh;
   background-color: var(--bg);
   background-image:
@@ -145,6 +160,18 @@ body::before {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  animation: box-slide-in 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes box-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -168,6 +195,87 @@ h1 {
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
+  }
+}
+
+.app-title {
+  position: relative;
+  display: inline-block;
+  background-image: var(--title-gradient);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation:
+    title-in 700ms 150ms cubic-bezier(0.22, 1, 0.36, 1) both,
+    title-shimmer 7s 850ms linear infinite,
+    title-float 5s 850ms ease-in-out infinite;
+}
+
+.app-title::after {
+  content: '';
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -0.16em;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform-origin: center;
+  animation: title-underline 3.5s 1s ease-in-out infinite;
+}
+
+@keyframes title-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes title-shimmer {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes title-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@keyframes title-underline {
+  0%,
+  100% {
+    transform: scaleX(0.3);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root,
+  .app-title {
+    animation: none;
+  }
+
+  .app-title::after {
+    animation: none;
   }
 }
 h2 {

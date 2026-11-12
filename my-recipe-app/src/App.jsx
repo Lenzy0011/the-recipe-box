@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
-      <h1>The Recipe Box</h1>
+      <h1 className="app-title">The Recipe Box</h1>
       
       <RecipeForm onAddRecipe={handleAddRecipe} />
       
